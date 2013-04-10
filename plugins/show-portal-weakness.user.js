@@ -47,7 +47,7 @@ window.plugin.portalWeakness.portalAdded = function(data) {
 
     // Are there High Level resonators
     var resCountHL = 0;
-    var resIsHL = 7;
+    var resIsHL = 8;
     var resRaduisHL = 0;
 
     $.each(d.resonatorArray.resonators, function(ind, reso) {
