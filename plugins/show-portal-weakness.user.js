@@ -101,7 +101,7 @@ window.plugin.portalWeakness.portalAdded = function(data) {
     }
     // Mark portal if there are High Level resonators attached
     if (resCountHL) {
-      var colorHL = 'DarkMagenta';
+      var colorHL = 'DarkOrange';
       var fill_opacityHL = Math.round(20 + resCountHL*10)/100;
       var params = {fillColor: colorHL, fillOpacity: fill_opacityHL, radius: data.portal.options.radius};
       // Get dash from previous function
