@@ -74,34 +74,34 @@ window.plugin.portalWeakness.portalAdded = function(data) {
       portal_weakness = 1;
     }
 	//console.log( "step 2. portal_weakness: " + portal_weakness );
-    // if(portal_weakness > 0) {
+    if(portal_weakness > 0) {
         
-      // var fill_opacity = portal_weakness*.7 + .3;
-      // var color = 'orange';
-      // if(only_shields) {
-      //   //color = 'yellow';
-      //   //If only shields are missing, make portal yellow
-      //   // but fill more than usual since pale yellow is basically invisible
-      //   //fill_opacity = missing_shields*.15 + .1;
-      // } else if( (missing_shields > 0) || (portal_weakness > 0.3) ) {
-      //   color = 'red';
-      // }
-      // fill_opacity = Math.round(fill_opacity*100)/100;
-      // var params = {fillColor: color, fillOpacity: fill_opacity};
-      // if(resCount < 8) {
-      //   // Hole per missing resonator
-      //   var dash = new Array(8-resCount + 1).join("1,4,") + "100,0";
-      //   params["dashArray"] = dash;
-      // }
-      // data.portal.setStyle(params);
-    // } else {
+      var fill_opacity = portal_weakness*.7 + .3;
+      var color = 'orange';
+      if(only_shields) {
+        //color = 'yellow';
+        //If only shields are missing, make portal yellow
+        // but fill more than usual since pale yellow is basically invisible
+        //fill_opacity = missing_shields*.15 + .1;
+      } else if( (missing_shields > 0) || (portal_weakness > 0.3) ) {
+        color = 'red';
+      }
+      fill_opacity = Math.round(fill_opacity*100)/100;
+      var params = {fillColor: color, fillOpacity: fill_opacity};
+      if(resCount < 8) {
+        // Hole per missing resonator
+        var dash = new Array(8-resCount + 1).join("1,4,") + "100,0";
+        params["dashArray"] = dash;
+      }
+      data.portal.setStyle(params);
+    } else {
       data.portal.setStyle({color:  COLORS[getTeam(data.portal.options.details)],
                             fillOpacity: 0.5,
                             dashArray: null});
-    // }
+    }
     // Mark portal if there are High Level resonators attached
     if (resCountHL) {
-      var colorHL = 'red';
+      var colorHL = 'DarkOrange';
       var fill_opacityHL = Math.round(20 + resCountHL*10)/100;
       var params = {fillColor: colorHL, fillOpacity: fill_opacityHL, radius: data.portal.options.radius};
       // Get dash from previous function
